@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-05-11T19:05:29.928Z",
+    "end": "2026-05-11T19:05:58.186Z",
+    "duration": 28258,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f73d99b7-fdd1-45f0-aa6f-4cc5c9ef99dc",
+      "title": "",
+      "fullFile": "cypress\\e2e\\carrinho.cy.js",
+      "file": "cypress\\e2e\\carrinho.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6aee7849-2651-4c38-afc0-9512fe96f501",
+          "title": "Carrinho EBAC Shop",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve adicionar produto ao carrinho com sucesso",
+              "fullTitle": "Carrinho EBAC Shop Deve adicionar produto ao carrinho com sucesso",
+              "timedOut": null,
+              "duration": 7269,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('produtos').then(produtos => {\n  _produtos.default.visitarProduto(produtos[0].nomeProduto);\n  _produtos.default.adicionarProdutoAoCarrinho(produtos[0].tamanho, produtos[0].cor, produtos[0].quantidade);\n  cy.get('.woocommerce-message', {\n    timeout: 15000\n  }).should('contain', produtos[0].titulo);\n});",
+              "err": {},
+              "uuid": "f76c67d3-95a5-4e9b-816d-ce32ebcf7681",
+              "parentUUID": "6aee7849-2651-4c38-afc0-9512fe96f501",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve exibir o produto adicionado no carrinho",
+              "fullTitle": "Carrinho EBAC Shop Deve exibir o produto adicionado no carrinho",
+              "timedOut": null,
+              "duration": 6164,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('produtos').then(produtos => {\n  _produtos.default.visitarProduto(produtos[0].nomeProduto);\n  _produtos.default.adicionarProdutoAoCarrinho(produtos[0].tamanho, produtos[0].cor, produtos[0].quantidade);\n  _produtos.default.acessarCarrinho();\n  cy.get('.cart_item', {\n    timeout: 15000\n  }).should('be.visible');\n});",
+              "err": {},
+              "uuid": "7b305ce8-00de-4e0a-852e-c4c3683901ed",
+              "parentUUID": "6aee7849-2651-4c38-afc0-9512fe96f501",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve atualizar a quantidade do produto no carrinho",
+              "fullTitle": "Carrinho EBAC Shop Deve atualizar a quantidade do produto no carrinho",
+              "timedOut": null,
+              "duration": 7121,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('produtos').then(produtos => {\n  _produtos.default.visitarProduto(produtos[0].nomeProduto);\n  _produtos.default.adicionarProdutoAoCarrinho(produtos[0].tamanho, produtos[0].cor, produtos[0].quantidade);\n  _produtos.default.acessarCarrinho();\n  cy.get('.qty', {\n    timeout: 15000\n  }).clear().type('3');\n  cy.get('[name=\"update_cart\"]').should('not.be.disabled').click();\n  cy.get('.woocommerce-message', {\n    timeout: 15000\n  }).should('be.visible');\n});",
+              "err": {},
+              "uuid": "0a061e5d-1562-4689-81ec-c1f8a12ad98e",
+              "parentUUID": "6aee7849-2651-4c38-afc0-9512fe96f501",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve validar o limite máximo de 10 itens do mesmo produto",
+              "fullTitle": "Carrinho EBAC Shop Deve validar o limite máximo de 10 itens do mesmo produto",
+              "timedOut": null,
+              "duration": 7140,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('produtos').then(produtos => {\n  _produtos.default.visitarProduto(produtos[0].nomeProduto);\n  _produtos.default.adicionarProdutoAoCarrinho(produtos[0].tamanho, produtos[0].cor, produtos[0].quantidade);\n  _produtos.default.acessarCarrinho();\n  cy.get('.qty', {\n    timeout: 15000\n  }).clear().type('11');\n  cy.get('[name=\"update_cart\"]').should('not.be.disabled').click();\n  cy.get('.woocommerce-error, .woocommerce-message', {\n    timeout: 15000\n  }).should('be.visible');\n});",
+              "err": {},
+              "uuid": "d386c1e3-4294-4e9c-be45-dd70f70478a3",
+              "parentUUID": "6aee7849-2651-4c38-afc0-9512fe96f501",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f76c67d3-95a5-4e9b-816d-ce32ebcf7681",
+            "7b305ce8-00de-4e0a-852e-c4c3683901ed",
+            "0a061e5d-1562-4689-81ec-c1f8a12ad98e",
+            "d386c1e3-4294-4e9c-be45-dd70f70478a3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 27694,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

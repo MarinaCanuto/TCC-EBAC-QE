@@ -1,54 +1,88 @@
+/// <reference types="cypress" />
+
+import produtosPage from "../support/page-objects/produtos.page"
+
 describe('Carrinho EBAC Shop', () => {
 
   it('Deve adicionar produto ao carrinho com sucesso', () => {
-    cy.adicionarProdutoAoCarrinho()
+    cy.fixture('produtos').then((produtos) => {
+      produtosPage.visitarProduto(produtos[0].nomeProduto)
 
-    cy.get('.woocommerce-message', { timeout: 10000 })
-      .should('exist')
+      produtosPage.adicionarProdutoAoCarrinho(
+        produtos[0].tamanho,
+        produtos[0].cor,
+        produtos[0].quantidade
+      )
+
+      cy.get('.woocommerce-message', { timeout: 15000 })
+        .should('contain', produtos[0].titulo)
+    })
   })
 
   it('Deve exibir o produto adicionado no carrinho', () => {
-    cy.adicionarProdutoAoCarrinho()
+    cy.fixture('produtos').then((produtos) => {
+      produtosPage.visitarProduto(produtos[0].nomeProduto)
 
-    cy.visit('/carrinho/')
+      produtosPage.adicionarProdutoAoCarrinho(
+        produtos[0].tamanho,
+        produtos[0].cor,
+        produtos[0].quantidade
+      )
 
-    cy.get('.cart_item')
-      .should('be.visible')
+      produtosPage.acessarCarrinho()
+
+      cy.get('.cart_item', { timeout: 15000 })
+        .should('be.visible')
+    })
   })
 
   it('Deve atualizar a quantidade do produto no carrinho', () => {
-    cy.adicionarProdutoAoCarrinho()
+    cy.fixture('produtos').then((produtos) => {
+      produtosPage.visitarProduto(produtos[0].nomeProduto)
 
-    cy.visit('/carrinho/')
+      produtosPage.adicionarProdutoAoCarrinho(
+        produtos[0].tamanho,
+        produtos[0].cor,
+        produtos[0].quantidade
+      )
 
-    cy.get('.qty')
-      .clear()
-      .type('2')
+      produtosPage.acessarCarrinho()
 
-    cy.get('[name="update_cart"]')
-      .click()
+      cy.get('.qty', { timeout: 15000 })
+        .clear()
+        .type('3')
 
-    cy.wait(1000)
+      cy.get('[name="update_cart"]')
+        .should('not.be.disabled')
+        .click()
 
-    cy.get('.woocommerce-message')
-      .should('be.visible')
+      cy.get('.woocommerce-message', { timeout: 15000 })
+        .should('be.visible')
+    })
   })
 
   it('Deve validar o limite máximo de 10 itens do mesmo produto', () => {
-    cy.adicionarProdutoAoCarrinho()
+    cy.fixture('produtos').then((produtos) => {
+      produtosPage.visitarProduto(produtos[0].nomeProduto)
 
-    cy.visit('/carrinho/')
+      produtosPage.adicionarProdutoAoCarrinho(
+        produtos[0].tamanho,
+        produtos[0].cor,
+        produtos[0].quantidade
+      )
 
-    cy.get('.qty')
-      .clear()
-      .type('11')
+      produtosPage.acessarCarrinho()
 
-    cy.get('[name="update_cart"]')
-      .click()
+      cy.get('.qty', { timeout: 15000 })
+        .clear()
+        .type('11')
 
-    cy.wait(1000)
+      cy.get('[name="update_cart"]')
+        .should('not.be.disabled')
+        .click()
 
-    cy.get('.woocommerce-error, .woocommerce-message')
-      .should('be.visible')
+      cy.get('.woocommerce-error, .woocommerce-message', { timeout: 15000 })
+        .should('be.visible')
+    })
   })
 })
