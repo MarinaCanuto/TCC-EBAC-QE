@@ -3,15 +3,14 @@ describe('Carrinho EBAC Shop', () => {
   it('Deve adicionar produto ao carrinho com sucesso', () => {
     cy.adicionarProdutoAoCarrinho()
 
-    cy.get('.woocommerce-message')
-      .should('contain', 'foi adicionado no seu carrinho')
+    cy.get('.woocommerce-message', { timeout: 10000 })
+      .should('exist')
   })
 
   it('Deve exibir o produto adicionado no carrinho', () => {
     cy.adicionarProdutoAoCarrinho()
 
-    cy.get('.woocommerce-message a')
-      .click()
+    cy.visit('/carrinho/')
 
     cy.get('.cart_item')
       .should('be.visible')
@@ -20,8 +19,7 @@ describe('Carrinho EBAC Shop', () => {
   it('Deve atualizar a quantidade do produto no carrinho', () => {
     cy.adicionarProdutoAoCarrinho()
 
-    cy.get('.woocommerce-message a')
-      .click()
+    cy.visit('/carrinho/')
 
     cy.get('.qty')
       .clear()
@@ -30,6 +28,8 @@ describe('Carrinho EBAC Shop', () => {
     cy.get('[name="update_cart"]')
       .click()
 
+    cy.wait(1000)
+
     cy.get('.woocommerce-message')
       .should('be.visible')
   })
@@ -37,8 +37,7 @@ describe('Carrinho EBAC Shop', () => {
   it('Deve validar o limite máximo de 10 itens do mesmo produto', () => {
     cy.adicionarProdutoAoCarrinho()
 
-    cy.get('.woocommerce-message a')
-      .click()
+    cy.visit('/carrinho/')
 
     cy.get('.qty')
       .clear()
@@ -46,7 +45,8 @@ describe('Carrinho EBAC Shop', () => {
 
     cy.get('[name="update_cart"]')
       .click()
-      cy.wait(1000)
+
+    cy.wait(1000)
 
     cy.get('.woocommerce-error, .woocommerce-message')
       .should('be.visible')

@@ -26,7 +26,4 @@ Cypress.Commands.add('adicionarProdutoAoCarrinho', () => {
   cy.get('.single_add_to_cart_button')
     .should('be.visible')
     .click()
-
-  cy.get('.woocommerce-message', { timeout: 10000 })
-  .should('exist')
 })
