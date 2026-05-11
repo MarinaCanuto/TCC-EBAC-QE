@@ -1,0 +1,8 @@
+{
+  "name": "performance-tests",
+  "version": "1.0.0",
+  "description": "Testes de performance - TCC EBAC QE",
+  "scripts": {
+    "test": "k6 run tests/performance.test.js"
+  }
+}
