@@ -1,0 +1,10 @@
+node_modules/
+UI/node_modules/
+
+cypress/videos/
+cypress/screenshots/
+
+UI/cypress/videos/
+UI/cypress/screenshots/
+
+.env
