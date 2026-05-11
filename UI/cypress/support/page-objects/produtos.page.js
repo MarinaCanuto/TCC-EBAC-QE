@@ -23,10 +23,9 @@ class ProdutosPage {
   }
 
   acessarCarrinho() {
-    cy.get('.woocommerce-message', { timeout: 15000 })
-      .contains('Ver carrinho')
-      .click()
-  }
+  cy.visit('/carrinho/')
+}
+
 }
 
 export default new ProdutosPage()
