@@ -1,0 +1,14 @@
+{
+  "usuarioValido": {
+    "username": "user1_ebac",
+    "password": "psw!ebac@test"
+  },
+  "usuarioInvalido": {
+    "username": "usuario_invalido",
+    "password": "senha_invalida"
+  },
+  "senhaInvalida": {
+    "username": "user1_ebac",
+    "password": "senha_errada"
+  }
+}
