@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-05-11T23:25:15.697Z",
+    "end": "2026-05-11T23:25:16.131Z",
+    "duration": 434,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f90854d5-48d0-4f22-95d9-512c6c26c18f",
+      "title": "",
+      "fullFile": "C:\\repositorio\\TCC-EBAC-QE\\API\\test\\api\\produtos.test.js",
+      "file": "\\test\\api\\produtos.test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2c06ba52-00b8-4f19-ab00-f20cfb8f9d77",
+          "title": "API EBAC - Produtos",
+          "fullFile": "C:\\repositorio\\TCC-EBAC-QE\\API\\test\\api\\produtos.test.js",
+          "file": "\\test\\api\\produtos.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve listar produtos com status 200",
+              "fullTitle": "API EBAC - Produtos Deve listar produtos com status 200",
+              "timedOut": false,
+              "duration": 213,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await spec()\n      .get('https://dummyjson.com/products')\n      .expectStatus(200)",
+              "err": {},
+              "uuid": "b8a9ae75-81d3-4310-8adf-16f752559563",
+              "parentUUID": "2c06ba52-00b8-4f19-ab00-f20cfb8f9d77",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve validar retorno de produtos",
+              "fullTitle": "API EBAC - Produtos Deve validar retorno de produtos",
+              "timedOut": false,
+              "duration": 41,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await spec()\n      .get('https://dummyjson.com/products')\n      .expectStatus(200)\n      .expectJsonLike({\n        products: [\n          {\n            id: 1\n          }\n        ]\n      })",
+              "err": {},
+              "uuid": "de1e5b87-516a-485a-bf2c-f5d27e1ff8c6",
+              "parentUUID": "2c06ba52-00b8-4f19-ab00-f20cfb8f9d77",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve validar tempo de resposta da API",
+              "fullTitle": "API EBAC - Produtos Deve validar tempo de resposta da API",
+              "timedOut": false,
+              "duration": 27,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await spec()\n      .get('https://dummyjson.com/products')\n      .expectStatus(200)\n      .expectResponseTime(3000)",
+              "err": {},
+              "uuid": "edb36e7d-3a99-468c-b9e3-9028b2240d37",
+              "parentUUID": "2c06ba52-00b8-4f19-ab00-f20cfb8f9d77",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve retornar erro para endpoint inexistente",
+              "fullTitle": "API EBAC - Produtos Deve retornar erro para endpoint inexistente",
+              "timedOut": false,
+              "duration": 146,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await spec()\n      .get('https://dummyjson.com/produtos-inexistentes')\n      .expectStatus(404)",
+              "err": {},
+              "uuid": "603b2241-4492-450d-b1fa-6c3cbbd556ff",
+              "parentUUID": "2c06ba52-00b8-4f19-ab00-f20cfb8f9d77",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b8a9ae75-81d3-4310-8adf-16f752559563",
+            "de1e5b87-516a-485a-bf2c-f5d27e1ff8c6",
+            "edb36e7d-3a99-468c-b9e3-9028b2240d37",
+            "603b2241-4492-450d-b1fa-6c3cbbd556ff"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 427,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.7.5"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports",
+        "overwrite": "false",
+        "html": "true",
+        "json": "true"
+      },
+      "version": "6.3.2"
+    }
+  }
+}
