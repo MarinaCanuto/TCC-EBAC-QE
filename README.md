@@ -1,70 +1,157 @@
-# TCC - Engenheiro de Qualidade de Software
+# TCC - Engenharia de Qualidade de Software
 
-Projeto de conclusão do curso Engenharia de Qualidade de Software da EBAC.
+Projeto de conclusão de curso desenvolvido para a formação em Engenharia de Qualidade de Software da EBAC.
 
-## Objetivo
+O objetivo deste projeto é aplicar estratégias, técnicas e ferramentas de QA em diferentes camadas de testes, incluindo automação UI, testes de API, testes de performance e testes mobile.
 
-Este projeto tem como objetivo aplicar os conhecimentos adquiridos ao longo da formação, contemplando:
+---
 
-- Estratégia de testes
-- Testes manuais
-- Critérios de aceitação
-- Automação WEB
-- Automação API
-- Automação Mobile
-- Testes de performance
-- Integração contínua
+# Objetivos do projeto
 
-## Tecnologias utilizadas
+* Aplicar conceitos de Qualidade de Software
+* Implementar automação de testes End-to-End
+* Validar fluxos críticos da aplicação
+* Implementar integração contínua
+* Aplicar padrões de automação
+* Gerar evidências e relatórios automatizados
 
-### UI
-- Cypress
-- JavaScript
+---
 
-### API
-- Supertest
-- Node.js
-
-### Mobile
-- WebdriverIO
-- Appium
-- Sauce Labs
-
-### Performance
-- k6
-
-### CI/CD
-- GitHub Actions
-
-## Estrutura do projeto
+# Estrutura do projeto
 
 ```bash
-/UI
-/API
-/Mobile
-/Performance
-/docs
+TCC-EBAC-QE/
+├── UI
+├── API
+├── Mobile
+├── Performance
+└── docs
 ```
 
-## Funcionalidades testadas
+---
 
-- Login na plataforma
-- Adicionar item ao carrinho
-- API de cupons
-- Catálogo de produtos
-- Minha conta
-- Meus pedidos
-- Endereços
-- Detalhes da conta
+# Tecnologias utilizadas
 
-## Integração contínua
+## UI
 
-Os testes automatizados serão executados utilizando GitHub Actions.
+* Cypress
+* JavaScript
+* Mochawesome
+* GitHub Actions
 
-## Relatórios
+## API
 
-O projeto utiliza geração de relatórios automatizados com Mochawesome e Allure Reports.
+* PactumJS
+* Mocha
 
-## Autora
+## Performance
+
+* k6
+
+## Mobile
+
+* Appium
+* WebdriverIO
+
+---
+
+# Estratégias aplicadas
+
+* Testes End-to-End
+* Testes funcionais
+* Testes negativos
+* Massa de dados com fixtures
+* Custom Commands
+* Page Objects
+* Integração contínua
+* Relatórios automatizados
+
+---
+
+# Integração Contínua
+
+O projeto possui pipeline CI/CD utilizando GitHub Actions para execução automatizada dos testes.
+
+## Fluxos automatizados
+
+* instalação de dependências
+* execução dos testes
+* execução headless
+* geração de evidências
+
+---
+
+# Relatórios
+
+Os testes automatizados geram:
+
+* relatórios HTML
+* relatórios JSON
+* screenshots
+* vídeos de execução
+
+---
+
+# Funcionalidades automatizadas
+
+## UI
+
+* Login
+* Carrinho
+* Fluxos críticos do e-commerce
+
+## API
+
+* Em desenvolvimento
+
+## Performance
+
+* Em desenvolvimento
+
+## Mobile
+
+* Em desenvolvimento
+
+---
+
+# Como executar o projeto
+
+## Clonar repositório
+
+```bash
+git clone https://github.com/MarinaCanuto/TCC-EBAC-QE.git
+```
+
+## Instalar dependências UI
+
+```bash
+cd UI
+npm install
+```
+
+## Executar testes UI
+
+```bash
+npm test
+```
+
+---
+
+# Organização do projeto
+
+O projeto foi estruturado de forma modular para facilitar:
+
+* manutenção
+* escalabilidade
+* reutilização de componentes
+* separação das camadas de teste
+
+---
+
+# Autora
 
 Marina Canuto
+
+* QA Engineer em formação
+* Estudante de Engenharia de Qualidade de Software - EBAC
+* Estudante de Análise e Desenvolvimento de Sistemas
