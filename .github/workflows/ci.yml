@@ -24,4 +24,4 @@ jobs:
 
       - name: Executar testes Cypress
         working-directory: UI
-        run: npx cypress run --browser chrome --headless
+        run: npx cypress run --browser electron --headless

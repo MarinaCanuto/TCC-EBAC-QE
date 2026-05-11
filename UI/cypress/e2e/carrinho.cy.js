@@ -4,6 +4,18 @@ import produtosPage from "../support/page-objects/produtos.page"
 
 describe('Carrinho EBAC Shop', () => {
 
+  beforeEach(() => {
+    cy.fixture('usuarios').then((usuarios) => {
+      cy.login(
+        usuarios.usuarioValido.username,
+        usuarios.usuarioValido.password
+      )
+
+      cy.get('.woocommerce-MyAccount-content')
+        .should('contain', 'Olá')
+    })
+  })
+
   it('Deve adicionar produto ao carrinho com sucesso', () => {
     cy.fixture('produtos').then((produtos) => {
       produtosPage.visitarProduto(produtos[0].nomeProduto)
@@ -49,6 +61,7 @@ describe('Carrinho EBAC Shop', () => {
       produtosPage.acessarCarrinho()
 
       cy.get('.qty', { timeout: 15000 })
+        .first()
         .clear()
         .type('3')
 
@@ -74,6 +87,7 @@ describe('Carrinho EBAC Shop', () => {
       produtosPage.acessarCarrinho()
 
       cy.get('.qty', { timeout: 15000 })
+        .first()
         .clear()
         .type('11')
 

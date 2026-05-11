@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-05-11T22:17:52.031Z",
+    "end": "2026-05-11T22:18:06.893Z",
+    "duration": 14862,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3339a41f-20f5-46b1-91bb-a6325cb5197c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\login.cy.js",
+      "file": "cypress\\e2e\\login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "425f52b0-50aa-4c7c-bdea-bd3c9ca591b0",
+          "title": "Login EBAC Shop",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve fazer login com sucesso usando usuário ativo",
+              "fullTitle": "Login EBAC Shop Deve fazer login com sucesso usando usuário ativo",
+              "timedOut": null,
+              "duration": 6311,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('usuarios').then(usuarios => {\n  cy.login(usuarios.usuarioValido.username, usuarios.usuarioValido.password);\n  cy.get('.woocommerce-MyAccount-content').should('contain', 'Olá');\n});",
+              "err": {},
+              "uuid": "c82c77f9-c14e-4130-8468-83c96ff2a929",
+              "parentUUID": "425f52b0-50aa-4c7c-bdea-bd3c9ca591b0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve exibir mensagem de erro ao informar usuário inválido",
+              "fullTitle": "Login EBAC Shop Deve exibir mensagem de erro ao informar usuário inválido",
+              "timedOut": null,
+              "duration": 2966,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('usuarios').then(usuarios => {\n  cy.login(usuarios.usuarioInvalido.username, usuarios.usuarioInvalido.password);\n  cy.get('.woocommerce-error').should('be.visible');\n});",
+              "err": {},
+              "uuid": "00965b87-6ee7-4a9e-b4fd-b0148ae36769",
+              "parentUUID": "425f52b0-50aa-4c7c-bdea-bd3c9ca591b0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve exibir mensagem de erro ao informar senha inválida",
+              "fullTitle": "Login EBAC Shop Deve exibir mensagem de erro ao informar senha inválida",
+              "timedOut": null,
+              "duration": 3377,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('usuarios').then(usuarios => {\n  cy.login(usuarios.senhaInvalida.username, usuarios.senhaInvalida.password);\n  cy.get('.woocommerce-error').should('be.visible');\n});",
+              "err": {},
+              "uuid": "51cefddc-6a02-4d71-90de-89f47934aa4c",
+              "parentUUID": "425f52b0-50aa-4c7c-bdea-bd3c9ca591b0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve exibir mensagem de erro ao tentar login com campos vazios",
+              "fullTitle": "Login EBAC Shop Deve exibir mensagem de erro ao tentar login com campos vazios",
+              "timedOut": null,
+              "duration": 1867,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/minha-conta/');\ncy.get('.woocommerce-form > .button').click();\ncy.get('.woocommerce-error').should('be.visible');",
+              "err": {},
+              "uuid": "295d4e45-f22c-44f3-ad6a-ab37804a9ace",
+              "parentUUID": "425f52b0-50aa-4c7c-bdea-bd3c9ca591b0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c82c77f9-c14e-4130-8468-83c96ff2a929",
+            "00965b87-6ee7-4a9e-b4fd-b0148ae36769",
+            "51cefddc-6a02-4d71-90de-89f47934aa4c",
+            "295d4e45-f22c-44f3-ad6a-ab37804a9ace"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 14521,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
