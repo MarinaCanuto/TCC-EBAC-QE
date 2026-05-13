@@ -87,4 +87,4 @@ Para execução local, é necessário:
 - Java instalado
 - Android Studio configurado
 - Android Emulator em execução
-- Appium configurado no ambiente
+- Appium configurado no ambiente 
