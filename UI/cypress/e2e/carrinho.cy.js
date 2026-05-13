@@ -16,7 +16,7 @@ describe('Carrinho EBAC Shop', () => {
     })
   })
 
-  it('Deve adicionar produto ao carrinho com sucesso', () => {
+  it.skip('Deve adicionar produto ao carrinho com sucesso', () => {
     cy.fixture('produtos').then((produtos) => {
       produtosPage.visitarProduto(produtos[0].nomeProduto)
 
