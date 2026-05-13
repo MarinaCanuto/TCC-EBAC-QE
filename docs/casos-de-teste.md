@@ -3,7 +3,7 @@
 # CT-001 - Login com sucesso
 
 ## Objetivo
-Validar login com credenciais válidas.
+Validar autenticação com credenciais válidas.
 
 ## Pré-condição
 Usuário previamente cadastrado.
@@ -46,50 +46,7 @@ Sistema deve exibir mensagem de erro.
 
 ---
 
-# CT-003 - Login com senha inválida
-
-## Objetivo
-Validar mensagem de erro para senha inválida.
-
-## Pré-condição
-Página de login acessível.
-
-## Passos
-1. Informar usuário válido
-2. Informar senha inválida
-3. Clicar em Entrar
-
-## Resultado esperado
-Sistema deve exibir mensagem de erro.
-
-## Tipo de teste
-- Funcional
-- Negativo
-
----
-
-# CT-004 - Login com campos vazios
-
-## Objetivo
-Validar obrigatoriedade dos campos de login.
-
-## Pré-condição
-Página de login acessível.
-
-## Passos
-1. Não preencher os campos
-2. Clicar em Entrar
-
-## Resultado esperado
-Sistema deve exibir mensagens de validação.
-
-## Tipo de teste
-- Funcional
-- Negativo
-
----
-
-# CT-005 - Adicionar produto ao carrinho
+# CT-003 - Adicionar produto ao carrinho
 
 ## Objetivo
 Validar inclusão de produto no carrinho.
@@ -98,11 +55,10 @@ Validar inclusão de produto no carrinho.
 Usuário autenticado.
 
 ## Passos
-1. Acessar página do produto
-2. Selecionar tamanho
-3. Selecionar cor
-4. Informar quantidade
-5. Adicionar ao carrinho
+1. Acessar produto
+2. Selecionar opções
+3. Definir quantidade
+4. Adicionar ao carrinho
 
 ## Resultado esperado
 Produto adicionado com sucesso.
@@ -114,55 +70,16 @@ Produto adicionado com sucesso.
 
 ---
 
-# CT-006 - Visualizar produto no carrinho
+# CT-004 - Validar limite máximo de itens
 
 ## Objetivo
-Validar exibição do produto no carrinho.
+Validar regra de limite máximo de quantidade.
 
 ## Pré-condição
-Produto previamente adicionado.
+Produto no carrinho.
 
 ## Passos
-1. Acessar carrinho
-
-## Resultado esperado
-Produto exibido corretamente.
-
-## Tipo de teste
-- Funcional
-
----
-
-# CT-007 - Atualizar quantidade do produto
-
-## Objetivo
-Validar atualização de quantidade do produto.
-
-## Pré-condição
-Produto existente no carrinho.
-
-## Passos
-1. Alterar quantidade
-2. Atualizar carrinho
-
-## Resultado esperado
-Carrinho atualizado com sucesso.
-
-## Tipo de teste
-- Funcional
-
----
-
-# CT-008 - Validar limite máximo de itens
-
-## Objetivo
-Validar limite máximo permitido para quantidade de produtos.
-
-## Pré-condição
-Produto existente no carrinho.
-
-## Passos
-1. Informar quantidade acima do limite permitido
+1. Informar quantidade acima do permitido
 2. Atualizar carrinho
 
 ## Resultado esperado
@@ -174,19 +91,19 @@ Sistema deve exibir mensagem de validação.
 
 ---
 
-# CT-009 - Validar status code da API
+# CT-005 - Listar cupons via API
 
 ## Objetivo
-Validar retorno da API.
+Validar listagem de cupons.
 
 ## Pré-condição
-API disponível.
+API disponível e autenticação válida.
 
 ## Passos
-1. Executar requisição
+1. Executar requisição GET para listagem de cupons
 
 ## Resultado esperado
-API deve retornar status code 200.
+Retorno com status 200 e lista de cupons.
 
 ## Tipo de teste
 - API
@@ -194,40 +111,121 @@ API deve retornar status code 200.
 
 ---
 
-# CT-010 - Validar performance da aplicação
+# CT-006 - Cadastrar novo cupom via API
+
+## Objetivo
+Validar cadastro de novo cupom.
+
+## Pré-condição
+API disponível e autenticação válida.
+
+## Passos
+1. Executar requisição POST com payload válido
+
+## Resultado esperado
+Cupom criado com sucesso com status 201.
+
+## Tipo de teste
+- API
+- Funcional
+- Positivo
+
+---
+
+# CT-007 - Buscar cupom por ID
+
+## Objetivo
+Validar busca de cupom específico.
+
+## Pré-condição
+Cupom previamente criado.
+
+## Passos
+1. Executar requisição GET por ID
+
+## Resultado esperado
+Retorno do cupom correspondente.
+
+## Tipo de teste
+- API
+- Funcional
+
+---
+
+# CT-008 - Teste de performance com carga
 
 ## Objetivo
 Validar comportamento da aplicação sob carga.
 
 ## Pré-condição
-Ambiente disponível.
+Endpoints disponíveis.
 
 ## Passos
-1. Executar teste de carga
+1. Executar teste com 20 usuários simultâneos
+2. Aplicar ramp-up progressivo
+3. Monitorar métricas
 
 ## Resultado esperado
-Sistema deve responder dentro do tempo esperado.
+Sistema responder dentro dos thresholds definidos.
 
 ## Tipo de teste
 - Performance
 
 ---
 
-# CT-011 - Validar login mobile
+# CT-009 - Validar abertura do aplicativo mobile
 
 ## Objetivo
-Validar autenticação na aplicação mobile.
+Validar abertura da aplicação mobile.
 
 ## Pré-condição
-Aplicação instalada.
+Aplicativo instalado no emulador Android.
 
 ## Passos
 1. Abrir aplicativo
-2. Informar credenciais válidas
-3. Realizar login
 
 ## Resultado esperado
-Usuário autenticado com sucesso.
+Tela inicial exibida corretamente.
+
+## Tipo de teste
+- Mobile
+- Funcional
+
+---
+
+# CT-010 - Validar catálogo mobile
+
+## Objetivo
+Validar exibição do catálogo de produtos.
+
+## Pré-condição
+Aplicativo aberto.
+
+## Passos
+1. Acessar catálogo
+
+## Resultado esperado
+Catálogo exibido corretamente.
+
+## Tipo de teste
+- Mobile
+- Funcional
+
+---
+
+# CT-011 - Validar scroll no catálogo mobile
+
+## Objetivo
+Validar navegação no catálogo.
+
+## Pré-condição
+Aplicativo aberto no catálogo.
+
+## Passos
+1. Realizar scroll na tela
+
+## Resultado esperado
+Navegação executada com sucesso.
 
 ## Tipo de teste
 - Mobile

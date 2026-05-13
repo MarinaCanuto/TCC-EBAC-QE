@@ -1,21 +1,22 @@
 # Automação API - TCC EBAC QE
 
-Projeto de automação de testes de API desenvolvido para validação de endpoints REST utilizando PactumJS e Mocha.
+Projeto de automação de testes de API desenvolvido para validação da API de cupons da aplicação EBAC Shop.
 
 ---
 
 # Objetivo
 
-Validar respostas da API, status code, tempo de resposta e comportamento dos endpoints através de testes automatizados.
+Validar os endpoints da API REST responsáveis pelo gerenciamento de cupons, garantindo funcionamento correto, autenticação e consistência dos retornos.
 
 ---
 
 # Tecnologias utilizadas
 
-* Node.js
-* PactumJS
-* Mocha
-* Mochawesome
+- Node.js
+- Supertest
+- Mocha
+- Chai
+- Mochawesome
 
 ---
 
@@ -23,9 +24,10 @@ Validar respostas da API, status code, tempo de resposta e comportamento dos end
 
 ```bash
 API/
-├── test
-│   └── api
-├── reports
+├── test/
+│   └── api/
+│       └── cupons.test.js
+├── reports/
 ├── package.json
 └── README.md
 ```
@@ -34,10 +36,11 @@ API/
 
 # Cenários automatizados
 
-* Validar status code 200
-* Validar retorno da API
-* Validar tempo de resposta
-* Validar endpoint inexistente
+- Listagem de cupons
+- Cadastro de novo cupom
+- Busca de cupom por ID
+- Validação de status code
+- Validação de payload
 
 ---
 
@@ -45,18 +48,18 @@ API/
 
 Os testes geram relatórios automatizados nos formatos:
 
-* HTML
-* JSON
+- HTML
+- JSON
 
-## Localização dos relatórios
+Localização:
 
 ```bash
-reports/
+API/reports
 ```
 
 ---
 
-# Como executar o projeto
+# Como executar
 
 ## Instalar dependências
 
@@ -74,24 +77,20 @@ npm test
 
 # Estratégias utilizadas
 
-* Testes funcionais
-* Testes negativos
-* Validação de status code
-* Validação de payload
-* Validação de tempo de resposta
+- testes funcionais
+- validação de API REST
+- autenticação Basic Auth
+- validação de payload
+- validação de status code
 
 ---
 
-# Resultados obtidos
+# Resultados
 
-Os testes automatizados validam o comportamento dos endpoints da API garantindo maior confiabilidade e estabilidade da aplicação.
+Os testes automatizados validam os principais endpoints da API de cupons da aplicação EBAC Shop.
 
 ---
 
 # Autora
 
 Marina Canuto
-
-* QA Engineer em formação
-* Estudante de Engenharia de Qualidade de Software - EBAC
-* Estudante de Análise e Desenvolvimento de Sistemas

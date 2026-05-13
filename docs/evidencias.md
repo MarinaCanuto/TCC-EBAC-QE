@@ -1,96 +1,104 @@
 # Evidências dos Testes
 
-Documentação das evidências geradas durante a execução dos testes automatizados do projeto TCC-EBAC-QE.
+## Objetivo
+
+Documentar as evidências geradas durante a execução dos testes automatizados do projeto TCC-EBAC-QE, garantindo rastreabilidade, análise de falhas e validação das execuções.
 
 ---
 
-# Objetivo
+## Tipos de evidências geradas
 
-Garantir rastreabilidade, análise de falhas e validação das execuções automatizadas através da geração de evidências durante os testes.
+O projeto gera evidências em diferentes camadas de testes automatizados:
+
+- relatórios HTML
+- relatórios JSON
+- screenshots automáticas
+- vídeos de execução
+- logs de execução
+- resultados de testes de performance
+- evidências de execução local
 
 ---
 
-# Ferramentas utilizadas
+## Evidências por módulo
 
-* Cypress
-* Mochawesome
-* GitHub Actions
+### UI (Web)
 
----
+Ferramentas:
+- Cypress
+- Mochawesome
 
-# Relatórios automatizados
+Evidências:
+- relatórios HTML
+- relatórios JSON
+- screenshots em falhas
+- vídeos de execução
 
-Os testes automatizados geram:
-
-* relatórios HTML
-* relatórios JSON
-
-## Localização dos relatórios
+Localização:
 
 ```bash
 UI/cypress/reports
-```
-
----
-
-# Screenshots
-
-O Cypress gera screenshots automáticas durante falhas de execução para auxiliar na análise dos erros.
-
-## Localização das screenshots
-
-```bash
 UI/cypress/screenshots
-```
-
----
-
-# Vídeos de execução
-
-As execuções automatizadas geram vídeos dos testes executados.
-
-## Localização dos vídeos
-
-```bash
 UI/cypress/videos
 ```
 
 ---
 
-# Pipeline CI/CD
+### API
 
-O projeto utiliza GitHub Actions para execução automatizada dos testes em ambiente de integração contínua.
+Ferramentas:
+- Supertest
+- Mocha
+- Mochawesome
 
-## Fluxos automatizados
+Evidências:
+- relatórios HTML
+- relatórios JSON
+- logs de execução
 
-* instalação de dependências
-* execução dos testes
-* execução headless
-* geração de evidências
+Localização:
 
----
-
-# Evidências validadas
-
-## UI
-
-### Login
-
-* Login com sucesso
-* Login inválido
-* Senha inválida
-* Validação de campos obrigatórios
-
-### Carrinho
-
-* Adição de produto
-* Visualização do carrinho
-* Atualização de quantidade
-* Validação de limite máximo
+```bash
+API/reports
+```
 
 ---
 
-# Repositório GitHub
+### Performance
+
+Ferramenta:
+- k6
+
+Evidências:
+- métricas de tempo de resposta
+- throughput
+- taxa de falhas
+- thresholds validados
+- logs da execução
+
+Métricas monitoradas:
+- http_req_duration
+- http_req_failed
+- iterations
+- vus
+- throughput
+
+---
+
+### Mobile
+
+Ferramentas:
+- Appium
+- WebdriverIO
+
+Evidências:
+- logs de execução
+- validação da automação mobile
+- resultados da execução local
+
+---
+
+## Repositório do projeto
 
 ```bash
 https://github.com/MarinaCanuto/TCC-EBAC-QE
@@ -98,24 +106,12 @@ https://github.com/MarinaCanuto/TCC-EBAC-QE
 
 ---
 
-# Resultados obtidos
+## Resultados obtidos
 
-Os testes automatizados executaram com sucesso localmente e via pipeline CI/CD, garantindo maior estabilidade e confiabilidade dos fluxos críticos da aplicação.
-
----
-
-# Evidências disponíveis
-
-* Relatórios Mochawesome
-* Logs de execução
-* Pipeline GitHub Actions
-* Vídeos dos testes
-* Screenshots automáticas
-* Evidências de execução local
-* Evidências de execução em CI/CD
+Os testes automatizados executaram com sucesso nas diferentes camadas propostas, validando funcionalidades críticas da aplicação, integração entre serviços, comportamento sob carga e automação mobile.
 
 ---
 
-# Considerações finais
+## Considerações finais
 
-As evidências geradas permitem melhor acompanhamento da qualidade da aplicação, rastreabilidade das execuções e análise contínua dos testes automatizados.
+As evidências geradas permitem acompanhamento contínuo da qualidade, rastreabilidade das execuções e suporte à análise de falhas durante o processo de validação.

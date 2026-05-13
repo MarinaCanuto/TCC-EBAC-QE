@@ -2,148 +2,127 @@
 
 ## Objetivo
 
-Definir a estratégia de qualidade e abordagem de testes utilizada no projeto TCC-EBAC-QE, garantindo a validação dos principais fluxos da aplicação através de diferentes camadas de testes.
+Definir a estratégia de qualidade adotada no projeto TCC-EBAC-QE, contemplando diferentes níveis de testes automatizados para validação da aplicação EBAC Shop.
 
 ---
 
-# Escopo dos testes
+## Escopo dos testes
 
-O projeto contempla testes automatizados nas seguintes camadas:
+O projeto contempla automação nas seguintes camadas:
 
-- UI (Interface do Usuário)
-- API
-- Performance
-- Mobile
-
----
-
-# Tipos de testes aplicados
-
-## Testes End-to-End (E2E)
-
-Realizados para validar o fluxo completo da aplicação simulando o comportamento real do usuário.
-
-Exemplos:
-- Login
-- Carrinho
-- Fluxo de compra
+- Testes UI (Web)
+- Testes de API
+- Testes de Performance
+- Testes Mobile
 
 ---
 
-## Testes funcionais
+## Abordagem de testes
 
-Aplicados para validar regras de negócio, comportamentos esperados e funcionamento correto das funcionalidades.
+### UI (Web)
 
----
-
-## Testes negativos
-
-Executados para validar comportamentos inesperados, mensagens de erro e tratamento de entradas inválidas.
-
-Exemplos:
-- Login inválido
-- Senha incorreta
-- Limite máximo de itens no carrinho
-
----
-
-## Testes de API
-
-Responsáveis por validar endpoints, status code, payloads e regras de integração da aplicação.
+Validação de fluxos críticos da aplicação web utilizando automação E2E.
 
 Ferramentas:
-- PactumJS
-- Mocha
+- Cypress
+- JavaScript
+- Mochawesome
+
+Cobertura:
+- autenticação
+- fluxo de compra
+- validações funcionais
+- cenários negativos
 
 ---
 
-## Testes de performance
+### API
 
-Executados para validar comportamento e estabilidade da aplicação sob carga.
+Validação dos serviços REST da API de cupons da aplicação.
+
+Ferramentas:
+- Supertest
+- Mocha
+- Chai
+
+Cobertura:
+- listagem de cupons
+- cadastro de cupons
+- busca por ID
+- validação de status code
+- validação de payload
+
+---
+
+### Performance
+
+Validação de comportamento sob carga utilizando testes não funcionais.
 
 Ferramenta:
 - k6
 
+Cobertura:
+- endpoint de produtos
+- endpoint de categorias
+- 20 usuários simultâneos
+- ramp-up progressivo
+- thresholds de performance
+
 ---
 
-## Testes mobile
+### Mobile
 
-Aplicados para validar funcionalidades da aplicação mobile utilizando automação.
+Validação automatizada do aplicativo Android EBAC Shop.
 
 Ferramentas:
 - Appium
 - WebdriverIO
+- UiAutomator2
+
+Cobertura:
+- abertura da aplicação
+- catálogo de produtos
+- campo de busca
+- scroll no catálogo
 
 ---
 
-# Estratégias utilizadas
+## Boas práticas aplicadas
 
-- Massa de dados com fixtures
-- Reutilização de comandos customizados
-- Page Objects
-- Modularização dos testes
-- Integração contínua
-- Geração automatizada de relatórios
-
----
-
-# Ambiente de testes
-
-## Ambiente UI
-- Cypress
-- Chrome Headless
-- GitHub Actions
-
-## Ambiente API
-- Node.js
-- PactumJS
-
-## Ambiente Performance
-- k6
-
-## Ambiente Mobile
-- Android/iOS
-- Appium
-- WebdriverIO
+- Page Object Model
+- modularização dos testes
+- separação por camada
+- reutilização de componentes
+- automação orientada à manutenção
+- geração automatizada de relatórios
 
 ---
 
-# Critérios de aceitação
+## Critérios de aceitação
 
 Os testes devem:
 
-- Executar sem falhas
-- Validar regras de negócio
-- Garantir estabilidade dos fluxos críticos
-- Gerar evidências automatizadas
-- Possuir rastreabilidade dos cenários
+- executar com sucesso
+- validar fluxos críticos
+- validar regras funcionais
+- garantir estabilidade
+- gerar evidências automatizadas
+- permitir rastreabilidade
 
 ---
 
-# Evidências geradas
+## Evidências geradas
 
-Os testes automatizados geram:
-
-- Relatórios HTML
-- Relatórios JSON
-- Screenshots
-- Vídeos de execução
-- Logs de pipeline CI/CD
-
----
-
-# Integração Contínua
-
-O projeto utiliza GitHub Actions para execução automatizada dos testes.
-
-Fluxos automatizados:
-- Instalação de dependências
-- Execução headless
-- Execução dos testes
-- Geração de evidências
+- relatórios HTML
+- relatórios JSON
+- screenshots
+- vídeos
+- logs de execução
+- resultados de performance
+- evidências de execução local
 
 ---
 
-# Considerações finais
+## Considerações finais
 
-A estratégia adotada busca garantir maior confiabilidade, cobertura e qualidade da aplicação através da automação de testes e integração contínua, utilizando boas práticas de QA e organização modular dos testes.
+A estratégia adotada busca garantir cobertura funcional e não funcional da aplicação através da automação de testes em múltiplas camadas, utilizando boas práticas de QA e organização modular.

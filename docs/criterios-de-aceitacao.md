@@ -1,11 +1,11 @@
 # Critérios de Aceitação
 
-# Funcionalidade: Login
+# Funcionalidade: Login Web
 
 ## Cenário: Login com sucesso
 
 Dado que o usuário acessa a página de login  
-Quando informar usuário e senha válidos  
+Quando informar credenciais válidas  
 Então deve ser autenticado com sucesso
 
 ---
@@ -14,85 +14,84 @@ Então deve ser autenticado com sucesso
 
 Dado que o usuário acessa a página de login  
 Quando informar um usuário inválido  
-Então o sistema deve exibir uma mensagem de erro
+Então o sistema deve exibir mensagem de erro
 
 ---
 
-## Cenário: Login com senha inválida
-
-Dado que o usuário acessa a página de login  
-Quando informar uma senha inválida  
-Então o sistema deve exibir uma mensagem de erro
-
----
-
-## Cenário: Login com campos vazios
-
-Dado que o usuário acessa a página de login  
-Quando tentar realizar login sem preencher os campos  
-Então o sistema deve exibir mensagens de validação
-
----
-
-# Funcionalidade: Carrinho
+# Funcionalidade: Carrinho Web
 
 ## Cenário: Adicionar produto ao carrinho
 
-Dado que o usuário acessa a página do produto  
-Quando selecionar tamanho, cor e quantidade  
-E clicar em adicionar ao carrinho  
-Então o produto deve ser adicionado com sucesso
-
----
-
-## Cenário: Visualizar produto no carrinho
-
-Dado que o usuário adicionou um produto ao carrinho  
-Quando acessar o carrinho  
-Então o produto deve ser exibido corretamente
-
----
-
-## Cenário: Atualizar quantidade do produto
-
-Dado que existe um produto no carrinho  
-Quando alterar a quantidade do produto  
-Então o carrinho deve ser atualizado com sucesso
+Dado que o usuário esteja autenticado  
+Quando selecionar um produto e adicioná-lo ao carrinho  
+Então o produto deve ser incluído com sucesso
 
 ---
 
 ## Cenário: Validar limite máximo de itens
 
-Dado que existe um produto no carrinho  
-Quando informar quantidade superior ao limite permitido  
+Dado que exista produto no carrinho  
+Quando a quantidade ultrapassar o limite permitido  
 Então o sistema deve exibir mensagem de validação
 
 ---
 
-# Funcionalidade: API
+# Funcionalidade: API de Cupons
 
-## Cenário: Validar resposta da API
+## Cenário: Listar cupons
 
-Dado que o usuário realiza uma requisição para a API  
-Quando a requisição for executada  
-Então a API deve retornar status code 200
+Dado que a API esteja disponível  
+Quando a requisição GET for executada com autenticação válida  
+Então a API deve retornar status 200 com a lista de cupons
+
+---
+
+## Cenário: Cadastrar novo cupom
+
+Dado que a API esteja disponível  
+Quando a requisição POST for executada com payload válido  
+Então a API deve cadastrar o cupom com status 201
+
+---
+
+## Cenário: Buscar cupom por ID
+
+Dado que exista um cupom cadastrado  
+Quando a requisição GET por ID for executada  
+Então a API deve retornar os dados do cupom correspondente
 
 ---
 
 # Funcionalidade: Performance
 
-## Cenário: Validar performance da aplicação
+## Cenário: Teste de carga
 
-Dado que múltiplos usuários acessam a aplicação simultaneamente  
-Quando a carga for executada  
-Então o sistema deve responder dentro do tempo esperado
+Dado que os endpoints estejam disponíveis  
+Quando o teste for executado com 20 usuários simultâneos  
+Então o sistema deve responder dentro dos thresholds definidos
 
 ---
 
 # Funcionalidade: Mobile
 
-## Cenário: Validar login mobile
+## Cenário: Abrir aplicativo mobile
 
-Dado que o usuário acessa a aplicação mobile  
-Quando informar credenciais válidas  
-Então deve realizar login com sucesso
+Dado que o aplicativo esteja instalado no emulador Android  
+Quando o usuário abrir a aplicação  
+Então a tela inicial deve ser exibida corretamente
+
+---
+
+## Cenário: Exibir catálogo de produtos
+
+Dado que o aplicativo esteja aberto  
+Quando o usuário acessar o catálogo  
+Então os produtos devem ser exibidos corretamente
+
+---
+
+## Cenário: Navegação no catálogo
+
+Dado que o catálogo esteja visível  
+Quando o usuário realizar scroll  
+Então a navegação deve ocorrer corretamente
