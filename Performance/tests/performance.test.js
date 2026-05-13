@@ -2,8 +2,11 @@ import http from 'k6/http'
 import { check, sleep } from 'k6'
 
 export const options = {
-  vus: 10,
-  duration: '10s',
+  stages: [
+    { duration: '20s', target: 20 },
+    { duration: '2m', target: 20 },
+    { duration: '20s', target: 0 }
+  ],
 
   thresholds: {
     http_req_duration: ['p(95)<2000'],
@@ -13,11 +16,20 @@ export const options = {
 
 export default function () {
 
-  const response = http.get('https://dummyjson.com/products')
+  const produtos = http.get('https://dummyjson.com/products')
 
-  check(response, {
-    'status deve ser 200': (r) => r.status === 200,
-    'tempo de resposta menor que 2s': (r) => r.timings.duration < 2000
+  check(produtos, {
+    'GET produtos status 200': (r) => r.status === 200,
+    'GET produtos resposta < 2s': (r) => r.timings.duration < 2000
+  })
+
+  sleep(1)
+
+  const categorias = http.get('https://dummyjson.com/products/categories')
+
+  check(categorias, {
+    'GET categorias status 200': (r) => r.status === 200,
+    'GET categorias resposta < 2s': (r) => r.timings.duration < 2000
   })
 
   sleep(1)
